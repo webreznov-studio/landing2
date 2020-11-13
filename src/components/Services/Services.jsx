@@ -9,6 +9,7 @@ const Card = (props) => {
   }
   const clickHandler = (text) => {
     props.setShow(text)
+    props.setInfo(props.price)
     return () => props.setShow ? props.setShow(true) : null
   }
   return (
@@ -48,6 +49,7 @@ const Services = (props) => (
         counter='5'
         info={'10000rub 5-7days'}
         setShow={props.setShow}
+        setInfo={props.setInfo}
       />
 
       <Card title='Оптимальный'
@@ -63,6 +65,7 @@ const Services = (props) => (
         counter='9'
         info={'20000rub 7-14days'}
         setShow={props.setShow}
+        setInfo={props.setInfo}
       />
 
       <Card title='Премиум'
@@ -85,6 +88,7 @@ const Services = (props) => (
         counter='15'
         info={'30000rub 21+days'}
         setShow={props.setShow}
+        setInfo={props.setInfo}
       />
     </div>
   </section>

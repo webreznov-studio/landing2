@@ -15,23 +15,34 @@ import links from "../constLinks"
 const Popup = (props) => {
     const firstLetter = /(?!.*[DFIOQU])[A-VXY]/i;
     const mask = [firstLetter]
+    const [infoZakaz, setInfoZakaz] = useState('')
     const [emailInput, setEmailInput] = useState('')
     const [phoneInput, setPhoneInput] = useState('')
     const [nameInput, setNameInput] = useState('')
+    const [isDisabled, setIsDisabled] = useState(false)
+    const [titleForm, setTitleForm] = useState('Оставьте свои контактные данные')
+    const thanksResponse = 'Спасибо за обращение, я скоро свяжусь с вами!'
+    const errorResponse = 'Произошла ошибка. Повторите отправку.'
 
     const handlerSendMail = (e) => {
         e.preventDefault();
+        if(!emailInput || !nameInput || !phoneInput)return
+        setIsDisabled(true)
         axios
             .post('https://webreznov.herokuapp.com/sendmailer',
                 {
                     email: emailInput,
-                    message: `name: ${nameInput}\nphone: ${phoneInput}`
+                    message: `\n\nWEBREZNOV - landing.\nНовая заявка!\n\nИмя: ${nameInput}\nТелефон: ${phoneInput}\nИнформация: ${props.info}`
                 })
             .then(function (response) {
-                console.log(response);
+                setTitleForm(thanksResponse)
+                setEmailInput('')
+                setNameInput('')
+                setPhoneInput('')
             })
             .catch(function (error) {
-                console.log(error);
+                setTitleForm(errorResponse)
+                setIsDisabled(false)
             });
     }
 
@@ -40,21 +51,20 @@ const Popup = (props) => {
             <div onClickCapture={() => props.setShow(false)} className='popup_wrapper'>
                 <div onClickCapture={() => props.setShow(true)} className="popup_wrapper_block">
                     <form onSubmit={handlerSendMail} className="form" id="form">
-                        <h2 className='form_title'>Оставьте свои контактные данные</h2>
+                        <h2 className='form_title'>{ titleForm }</h2>
                         <div className="form_fields">
-                            {/* <input type="text" className='form_fields_input' placeholder='Ваше имя' /> */}
-                            <InputMask onChange={(e) => setNameInput(e.target.value)} value={nameInput} mask={mask} maskChar=" " type="text" className='form_fields_input' placeholder='Ваше имя' required />
-                            <InputMask onChange={(e) => setPhoneInput(e.target.value)} value={phoneInput} mask="+7\999 999 99 99" maskChar="_" type="phone" className='form_fields_input' placeholder='Ваш телефон' required />
-                            <input onChange={(e) => setEmailInput(e.target.value)} value={emailInput} type="email" className='form_fields_input' placeholder='Ваш email' required />
-                            <input type="submit" className='form_fields_btn' value="отправить" />
+                            <InputMask onChange={!isDisabled ? (e) => setNameInput(e.target.value) : null} value={nameInput} mask={mask} maskChar=" " type="text" className='form_fields_input' placeholder='Ваше имя' required />
+                            <InputMask onChange={!isDisabled ? (e) => setPhoneInput(e.target.value) : null} value={phoneInput} mask="+7\999 999 99 99" maskChar="_" type="phone" className='form_fields_input' placeholder='Ваш телефон' required />
+                            <input onChange={!isDisabled ? (e) => setEmailInput(e.target.value) : null} value={emailInput} type="email" className='form_fields_input' placeholder='Ваш email' required />
+                            <input type="submit" disabled={isDisabled} className='form_fields_btn' value="отправить" />
                             <button onClickCapture={() => props.setShow(false)} className='form_close' title='закрыть окно'>X</button>
                             {/* <input style={{"display":"none"}} onChange={null} readOnly value={props.info}/> */}
                         </div>
                         <div className="form_social">
-                            <a href={links.TELEGRAM} target='_blank'><img src={telegram} alt="telegram" /></a>
-                            <a href={links.WHATSUP} target='_blank'><img src={whatsapp} alt="telegram" /></a>
-                            <a href={links.VK} target='_blank'><img src={vk} alt="vk" /></a>
-                            <a href={links.INST} target='_blank'><img src={inst} alt="inst" /></a>
+                            <a href={links.TELEGRAM} rel="noreferrer" target='_blank'><img src={telegram} alt="telegram" /></a>
+                            <a href={links.WHATSUP} rel="noreferrer" target='_blank'><img src={whatsapp} alt="telegram" /></a>
+                            <a href={links.VK} rel="noreferrer" target='_blank'><img src={vk} alt="vk" /></a>
+                            <a href={links.INST} rel="noreferrer" target='_blank'><img src={inst} alt="inst" /></a>
                         </div>
                         <img className='form_bg' src={phoneBg} alt="phone" />
                     </form>

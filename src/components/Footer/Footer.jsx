@@ -11,10 +11,10 @@ import links from '../constLinks'
 const Footer = () => (
   <footer className="footer">
     <div className="footer_social">
-      <a href={links.TELEGRAM} target='_blank'><img src={telegram} alt="telegram" /></a>
-      <a href={links.WHATSUP} target='_blank'><img src={whatsapp} alt="telegram" /></a>
-      <a href={links.VK} target='_blank'><img src={vk} alt="vk" /></a>
-      <a href={links.INST} target='_blank'><img src={inst} alt="inst" /></a>
+      <a href={links.TELEGRAM} rel="noreferrer" target='_blank'><img src={telegram} alt="telegram" /></a>
+      <a href={links.WHATSUP} rel="noreferrer" target='_blank'><img src={whatsapp} alt="telegram" /></a>
+      <a href={links.VK} rel="noreferrer" target='_blank'><img src={vk} alt="vk" /></a>
+      <a href={links.INST} rel="noreferrer" target='_blank'><img src={inst} alt="inst" /></a>
     </div>
     <div className="footer_year">
       <strong>© {new Date().getFullYear()}, #webreznov__studio</strong>
