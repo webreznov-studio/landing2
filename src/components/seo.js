@@ -67,6 +67,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `verify-admitad`,
+          content: `94596e0acb`,
+        },
       ].concat(meta)}
     />
   )
