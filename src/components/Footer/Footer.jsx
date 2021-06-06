@@ -17,7 +17,7 @@ const Footer = () => (
       <a href={links.INST} rel="noreferrer" target='_blank'><img src={inst} alt="inst" /></a>
     </div>
     <div className="footer_year">
-      <strong>© {new Date().getFullYear()}, #webreznov__studio</strong>
+      <strong>© {new Date().getFullYear()}, #webreznov</strong>
     </div>
     <div className="footer_logo">
       <Link to='#'><img src={logo} alt="logo" /></Link>
