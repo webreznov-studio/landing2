@@ -1,4 +1,4 @@
-.popup_wrapper{
+.popup_wrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,22 +9,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .popup_wrapper_block{
+    .popup_wrapper_block {
         background: #1b1b1b;
         border-radius: 54px;
     }
 }
-.form{
+.form {
     flex-wrap: wrap;
     position: relative;
     z-index: 1;
-    .form_title{
+    .form_title {
         width: 100%;
         text-align: center;
         padding: 0 20px;
         box-sizing: border-box;
     }
-    .form_bg{
+    .form_bg {
         position: absolute;
         right: 0;
         top: 30%;
@@ -33,7 +33,7 @@
         opacity: 0.6;
     }
 }
-.form_close{
+.form_close {
     border: none;
     outline: none;
     background: none;
@@ -48,18 +48,18 @@
     right: 105px;
 }
 @media all and (max-width: 768px) {
-    .form{
-        .form_title{
+    .form {
+        .form_title {
             order: 1;
         }
-        .form_bg{
+        .form_bg {
             width: 100%;
         }
-        .form_social{
+        .form_social {
             padding-top: 30px;
             width: 200px;
-            a{
-                img{
+            a {
+                img {
                     width: 30px;
                     height: 30px;
                 }

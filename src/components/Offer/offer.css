@@ -74,17 +74,21 @@
 }
 
 .offer .container .offer_slider {
+  position: relative;
   width: 50%;
+  width: 620px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-.offer .container .offer_slider img {
+.offer .container .offer_slider img.macbook {
   width: 100%;
+  width: 620px;
+  height: 320px;
 }
 
 @media all and (max-width: 1480px) {
@@ -120,6 +124,7 @@
         -ms-flex-align: center;
             align-items: center;
     padding: 0 20px;
+    padding-bottom: 120px;
   }
   .offer .container .offer_block {
     width: 70%;
@@ -131,14 +136,17 @@
   .offer .container .offer_block .offer_btn {
     height: 52px;
   }
-  .offer .container .offer_slider {
-    width: 100%;
-  }
 }
 
 @media all and (max-width: 768px) {
+  .offer {
+    padding-left: 50px;
+    padding-right: 50px;
+    overflow: hidden;
+  }
   .offer .container {
     padding: 0 10px;
+    padding-bottom: 120px;
   }
   .offer .container .offer_block {
     width: 100%;
@@ -151,8 +159,21 @@
     height: 42px;
     padding: 13px 70px;
   }
-  .offer .container .offer_slider {
-    width: 100%;
+  .offer .container .offer_slider .mac_wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow-x: hidden;
+  }
+}
+
+@media all and (max-width: 414px) {
+  .offer {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 /*# sourceMappingURL=offer.css.map */
