@@ -41,6 +41,16 @@ module.exports = {
       options: {
         excludes: ['/index-admin']
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-yandex-metrika`,
+      options: {
+        trackingId: 80587351,
+        webvisor: true,
+        trackHash: true,
+        afterBody: true,
+        defer: false,
+      },
+    },
   ],
 }
