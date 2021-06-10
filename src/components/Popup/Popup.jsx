@@ -29,7 +29,7 @@ const Popup = (props) => {
         if (!emailInput || !nameInput || !phoneInput) return;
         setIsDisabled(true);
         axios
-            .post('http://localhost:8080/api/email/add-user-contact', null, {params: {
+            .post('https://webreznov-portfolio.herokuapp.com/api/email/add-user-contact', null, {params: {
                 name: nameInput,
                 email: emailInput,
                 phone: phoneInput,
