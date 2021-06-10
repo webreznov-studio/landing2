@@ -52,5 +52,13 @@ module.exports = {
         defer: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `AW-529243088`,
+        head: true,
+        anonymize: true,
+      },
+    },
   ],
 }
