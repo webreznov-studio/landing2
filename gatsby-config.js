@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Webreznov - web developer`,
+    description: `Разработка сайтов, email писем и веб приложений. Создаем удобные и эффективные сайты. Адаптируем верстку под разные устройства и браузеры. Создание электронных писем с фирменным стилем.`,
+    author: `@webreznov`,
+    siteUrl: `https://webreznov.ru/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,5 +36,11 @@ module.exports = {
         anonymize: true
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: ['/index-admin']
+      }
+    }
   ],
 }
