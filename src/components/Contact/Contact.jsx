@@ -28,7 +28,7 @@ const Contact = () => {
         setIsDisabled(true);
 
         axios
-            .post('http://localhost:8080/api/email/add-user-contact', null, {
+            .post('https://webreznov-portfolio.herokuapp.com/api/email/add-user-contact', null, {
                 params: {
                     name: name,
                     email: email,
