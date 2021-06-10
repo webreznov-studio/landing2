@@ -29,14 +29,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "G-6DB8G5F5T8",
-        head: true,
-        anonymize: true
-      },
-    },
-    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         excludes: ['/index-admin']
@@ -53,11 +45,21 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-gtag`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: `AW-529243088`,
-        head: true,
-        anonymize: true,
+        trackingIds: [
+          "G-6DB8G5F5T8", // Google Analytics / GA
+          "AW-529243088", // Google Ads / Adwords / AW
+        ],
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: true,
+          exclude: ["/index-admin"],
+        },
       },
     },
   ],
